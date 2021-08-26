@@ -1,0 +1,8 @@
+.NavBar {
+    width: 100%;
+    background: black;
+    opacity: .75;
+    color: white;
+    position: fixed;
+    top: 0;
+}
