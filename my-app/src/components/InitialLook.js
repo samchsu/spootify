@@ -3,14 +3,19 @@ import "./InitialLook.css";
 const InitialLook = () => {
 
     function start() {
-        fetch("https://accounts.spotify.com/authorize?39c7513b9e4544efaea531cdb0fb9e0d", {
-        method: "GET",
+        fetch("http://localhost:3000/login", {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json"
         }
       })
+      .then(data => data.json()) 
+        .then(data => {
+          console.log(data);
+          window.location.href = data;
+        })
     }
+    
     return (
         <div className="InitialLook">
             <div className="text-container">
