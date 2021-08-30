@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "./InitialLook.css";
+import { trackPromise } from 'react-promise-tracker';
+
 const InitialLook = () => {
 
   var [auth, setAuth] = useState("");
   function start() {
+    trackPromise(
       fetch("https://spootifyit-backend.herokuapp.com/login", {
       headers: {
         "Content-Type": "application/json",
@@ -16,6 +19,7 @@ const InitialLook = () => {
         setAuth(data);
         window.location.href = data;
       })
+    )
   }
 
   return (
