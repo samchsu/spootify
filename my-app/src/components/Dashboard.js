@@ -14,7 +14,7 @@ function Dashboard() {
         var accessToken = window.location.href.split('code=').pop();  
         console.log(accessToken);
 
-        fetch("http://localhost:3000/auth", {
+        fetch("https://spootifyit-backend.herokuapp.com/auth", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function Dashboard() {
     console.log(token)
 
     function refresh() {
-        fetch("http://localhost:3000/login", {
+        fetch("https://spootifyit-backend.herokuapp.com/login", {
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json"

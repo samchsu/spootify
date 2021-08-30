@@ -4,7 +4,7 @@ const InitialLook = () => {
 
   var [auth, setAuth] = useState("");
   function start() {
-      fetch("http://localhost:3000/login", {
+      fetch("https://spootifyit-backend.herokuapp.com/login", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
