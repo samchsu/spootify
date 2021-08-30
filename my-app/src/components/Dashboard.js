@@ -115,7 +115,7 @@ function Dashboard() {
                  { data ? data.map((track, i)=> (
                     <li key={i}>
                         <div className="tracks">
-                            {i+1}. {track?.name} - {track?.artists[0].name} <br></br>
+                            {i+1}. <track-name>{track?.name}</track-name> - {track?.artists[0].name} <br></br>
                         </div>
                     </li> 
                 )) : "Unable to load data. Please press Spootify to continue."}

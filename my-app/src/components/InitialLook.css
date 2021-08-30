@@ -33,8 +33,10 @@
 h1 {
     cursor: pointer;
     color: white;
+    font-size: 100px;
 }
 
 h1:hover {
     color: rgb(94, 60, 28);
+    transition-duration: 0.4s;
 }
