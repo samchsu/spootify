@@ -2,19 +2,39 @@
     display: flex;
     background: rgb(196, 162, 131);
     justify-content: center;
-    align-items: center;
     text-align: center;
     height: 100vh;
     width: 100vw;
 }
 
-.text-container {
-    cursor: pointer;
+.header {
+    color: rgb(43, 25, 8);
+    font-size: 16px;
+}
+
+.title {
+    display: flex;
+    background: rgb(196, 162, 131);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    background: rgb(196, 162, 131);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 h1 {
+    cursor: pointer;
     color: white;
 }
-p {
-    color: white;
+
+h1:hover {
+    color: rgb(94, 60, 28);
 }

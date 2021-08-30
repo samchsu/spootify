@@ -3,6 +3,11 @@ import "./Dashboard.css";
 
 function Dashboard() {
     var [token, setToken] = useState("");
+    var [data, setData] = useState([]);
+    var [auth, setAuth] = useState("");
+    
+    var count = 0;
+
     useEffect(() => {
         console.log("The URL of this page is: " + window.location.href);
         var url = window.location.href;
@@ -30,8 +35,23 @@ function Dashboard() {
     }, []);
     console.log(token)
 
+    function refresh() {
+        fetch("http://localhost:3000/login", {
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        }
+        })
+        .then(data => data.json()) 
+        .then(data => {
+            console.log(data);
+            setAuth(data);
+            window.location.href = data;
+        })
+    } 
     async function topTracksL() {
-        await fetch ("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", {
+        try {
+            await fetch ("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", {
             method: "GET",
             headers: {
                 'Authorization': 'Bearer ' + token,
@@ -42,7 +62,13 @@ function Dashboard() {
         .then (res => res.json())
         .then (res => {
             console.log(res);
+            setData(res.items);
         })
+          }
+          catch(err) {
+            console.log("Please refresh");
+          }
+
     }
 
     async function topTracksM() {
@@ -57,6 +83,7 @@ function Dashboard() {
         .then (res => res.json())
         .then (res => {
             console.log(res);
+            setData(res.items);
         })
     }
 
@@ -72,20 +99,29 @@ function Dashboard() {
         .then (res => res.json())
         .then (res => {
             console.log(res);
+            setData(res.items);
         })
     }
 
     return (
       <div className="Dashboard">
-          <div className="text-container">
-              {token}
+          <div onClick={refresh} className="spootify">Spootify</div>
+                <div className="container">
+                    <div className="btns" onClick={topTracksS}>last month</div>
+                    <div className="btns" onClick={topTracksM}>last 6 months</div>
+                    <div className="btns" onClick={topTracksL}>all time</div>
+                </div>
+              <ul>
+                 { data ? data.map((track, i)=> (
+                    <li key={i}>
+                        <div className="tracks">
+                            {i+1}. {track?.name} - {track?.artists[0].name} <br></br>
+                        </div>
+                    </li> 
+                )) : "Unable to load data. Please press Spootify to continue."}
+              </ul>
               <br></br>
-              <button onClick={topTracksL}>all time</button>
-              <button onClick={topTracksM}>last 6 months</button>
-              <button onClick={topTracksS}>last month</button>
               <br></br>
-              <a href="http://localhost:3001" class="btn btn-primary">Go back</a>
-          </div>
       </div>
   )
 }
