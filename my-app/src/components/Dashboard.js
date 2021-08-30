@@ -12,7 +12,6 @@ function Dashboard() {
         console.log("The URL of this page is: " + window.location.href);
         var url = window.location.href;
         var accessToken = window.location.href.split('code=').pop();  
-        console.log(accessToken);
 
         fetch("https://spootifyit-backend.herokuapp.com/auth", {
             method: "POST",
@@ -27,13 +26,11 @@ function Dashboard() {
         })
         .then(res => res.json()) 
         .then(res => {
-            console.log(res);
-            console.log(res.access_token);
+            //console.log(res);
+            //console.log(res.access_token);
             setToken(res.access_token);
         })
-        console.log(accessToken);
     }, []);
-    console.log(token)
 
     function refresh() {
         fetch("https://spootifyit-backend.herokuapp.com/login", {
@@ -44,7 +41,7 @@ function Dashboard() {
         })
         .then(data => data.json()) 
         .then(data => {
-            console.log(data);
+            //console.log(data);
             setAuth(data);
             window.location.href = data;
         })
@@ -61,7 +58,7 @@ function Dashboard() {
         })
         .then (res => res.json())
         .then (res => {
-            console.log(res);
+            //console.log(res);
             setData(res.items);
         })
           }
@@ -82,7 +79,7 @@ function Dashboard() {
         })
         .then (res => res.json())
         .then (res => {
-            console.log(res);
+            //console.log(res);
             setData(res.items);
         })
     }
@@ -98,7 +95,7 @@ function Dashboard() {
         })
         .then (res => res.json())
         .then (res => {
-            console.log(res);
+            //console.log(res);
             setData(res.items);
         })
     }
@@ -111,6 +108,7 @@ function Dashboard() {
                     <div className="btns" onClick={topTracksM}>last 6 months</div>
                     <div className="btns" onClick={topTracksL}>all time</div>
                 </div>
+                
               <ul>
                  { data ? data.map((track, i)=> (
                     <li key={i}>
