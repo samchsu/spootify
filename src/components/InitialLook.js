@@ -25,11 +25,12 @@ const InitialLook = () => {
   return (
       <div className="InitialLook">
           <div className="text-container">
-              <a className="header" href="https://samchsu.github.io">created by sam</a>
               <div className="center">
                 <h1 onClick={start}>Spootify it</h1>
               </div>
-              <p>{auth}</p>
+              <div className="header-wrapper">
+                <a className="header" href="https://samchsu.github.io">created by sam</a>
+              </div>
           </div>
       </div>
   )
