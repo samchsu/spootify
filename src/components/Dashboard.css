@@ -8,6 +8,7 @@
     min-height: 100vh;
     min-width: 100vw;
     position: absolute;
+    overflow-x: hidden;
     margin: 0; 
     padding:0;
     top:0; 
@@ -21,6 +22,10 @@ ul {
 
 button {
 cursor: pointer;
+}
+
+a {
+    cursor: pointer;
 }
 
 .spootify {

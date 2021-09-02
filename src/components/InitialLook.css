@@ -1,4 +1,5 @@
 .InitialLook {
+    overflow-x: hidden;
     display: flex;
     background: rgb(196, 162, 131);
     justify-content: center;
