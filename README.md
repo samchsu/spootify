@@ -1,6 +1,6 @@
 # Spootify 
 
-A Full Stack Web Application that utilizes Spotify API to obtain and display user's most played tracks within a specified time period.
+A Frontend with Backend Web Application that utilizes Spotify API to obtain and display user's most played tracks within a specified time period.
 
 ## Website link
 
